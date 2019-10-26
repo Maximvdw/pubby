@@ -69,7 +69,7 @@ public class PubbyNegotiatorTest extends TestCase {
 	public void testSafariGetsHTML() {
 		// Some versions of Safari send a broken "*/*" Accept header.
 		// We must override this to send HTML.
-		assertEquals("text/html",
+		assertEquals("application/x-turtle",
 				negotiator.getBestMatch("*/*", 
 						"Mozilla/5.0 (Macintosh; U; Intel Mac OS X; en) " +
 						"AppleWebKit/522.11.1 (KHTML, like Gecko) " +
@@ -77,7 +77,7 @@ public class PubbyNegotiatorTest extends TestCase {
 	}
 	
 	public void testAcceptEverythingGetsHTML() {
-		assertEquals("text/html", negotiator.getBestMatch("*/*").getMediaType());
+		assertEquals("application/x-turtle", negotiator.getBestMatch("*/*").getMediaType());
 	}
 	
 	public void testFirefox3GetsHTML() {
